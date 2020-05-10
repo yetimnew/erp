@@ -48,10 +48,10 @@
                     const mobile = document.getElementById( 'mobile' );
                     const remark = document.getElementById( 'remark' );
                     const customer_reg = document.getElementById( 'customer_reg' );
-            
+
                     customer_reg.addEventListener( 'submit', function ( event ) {
                         event.preventDefault();
-                        if ( 
+                        if (
                             validateName() &&
                             validateAddress() &&
                             validateOfficenumber() &&
@@ -62,14 +62,14 @@
                             return false;
                         }
                     } );
-            
-                    
+
+
                     function validateName() {
                         if ( !meetLength( name, 3, 100) ) {
                             return false;
                         } else {
                             return true;
-                            
+
                         }
                     }
                     function validateAddress() {
@@ -87,23 +87,20 @@
                         }
                        else {
                             return true;
-                            
+
                         }
                     }
-                    
+
                      function validateMobile() {
                          if ( !meetLength( mobile, 0, 11 ) ) {
                              return false;
                          } else {
                              return true;
-             
+
                          }
                      }
-            
-            //*******************************************************************
-            // Validator functions
-            //*******************************************************************
-            
+
+
         </script>
 
         @endsection

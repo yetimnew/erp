@@ -1,4 +1,4 @@
-@extends( 'master.app' )
+@extends( 'layouts.master.app' )
 @section( 'title', 'TIMS | Operation' )
 
 @section('content')
@@ -10,7 +10,7 @@
 
         <div class="col-6">
             <div class="card-body">
-                <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('profile.update',$profile->id) }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group required">
                         <label class="control-label">Full Name</label>

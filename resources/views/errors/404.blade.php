@@ -1,8 +1,8 @@
-@include('master.head')
-@include('master.topnav')
+@include('layouts.master.head')
+@include('layouts.master.topnav')
 <!-- Side Navbar -->
 {{-- @if (Auth::check()) --}}
-@include('master.sidenav')
+@include('layouts.master.sidenav')
 {{-- @endif --}}
 
 <div class="content-inner">
@@ -21,7 +21,7 @@
             </div>
         </div>
     </section>
-    @include('master.footer')
+    @include('layouts.master.footer')
     @section('javascript')
 
     @endsection
