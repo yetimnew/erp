@@ -4,7 +4,7 @@
             <label class="control-label" for="personalesid">ID Number</label>
             <div class="input-group">
                 <input name="personalesid" type="text" id="personalesid"
-                    class="form-control select {{ $errors->has('personalesid') ? ' is-invalid' : '' }}"
+                    class="form-control form-control-sm select {{ $errors->has('personalesid') ? ' is-invalid' : '' }}"
                     value="{{old('personalesid') ?? $personale->personalesid}}" onfocusout="validatepersonalesid()">
                 @if ($errors->has('personalesid'))
                 <span class="invalid-feedback" role="alert">
@@ -19,7 +19,7 @@
             <label class="control-label" for="firstname">First Name</label>
             <div class="input-group">
                 <input name="firstname" type="text" id="firstname"
-                    class="form-control select {{ $errors->has('firstname') ? ' is-invalid' : '' }}"
+                    class="form-control form-control-sm select {{ $errors->has('firstname') ? ' is-invalid' : '' }}"
                     value="{{old('firstname') ?? $personale->firstname}}" onfocusout="validatefirstname()">
                 @if ($errors->has('firstname'))
                 <span class="invalid-feedback" role="alert">
@@ -34,7 +34,7 @@
             <label class="control-label" for="fathername">Father Name</label>
             <div class="input-group">
                 <input name="fathername" type="text" id="fathername"
-                    class="form-control select {{ $errors->has('fathername') ? ' is-invalid' : '' }}"
+                    class="form-control form-control-sm select {{ $errors->has('fathername') ? ' is-invalid' : '' }}"
                     value="{{old('fathername') ?? $personale->fathername}}" onfocusout="validatefathername()">
                 @if ($errors->has('fathername'))
                 <span class="invalid-feedback" role="alert">
@@ -48,7 +48,7 @@
             <label class="control-label" for="gfathername">Father Name</label>
             <div class="input-group">
                 <input name="gfathername" type="text" id="gfathername"
-                    class="form-control select {{ $errors->has('gfathername') ? ' is-invalid' : '' }}"
+                    class="form-control form-control-sm select {{ $errors->has('gfathername') ? ' is-invalid' : '' }}"
                     value="{{old('gfathername') ?? $personale->gfathername}}" onfocusout="validategfathername()">
                 @if ($errors->has('gfathername'))
                 <span class="invalid-feedback" role="alert">
@@ -61,9 +61,9 @@
 
         <div class="row">
             <div class="col-md-6 col-sm-12">
-                <div class="form-group required" >
+                <div class="form-group required">
                     <label class="control-label" for="sex">Sex</label>
-                    <select name="sex" class="form-control select" id="sex" required>
+                    <select name="sex" class="form-control form-control-sm select" id="sex" required>
                         {{-- <option class="dropup" value="">Select </option> --}}
                         <option class="dropup" value="1" selected> Male </option>
                         <option class="dropup" value="0"> Female </option>
@@ -79,7 +79,7 @@
 
                     <div class="input-group"> <span class="input-group-addon"></span>
                         <input name="birthdate" type="text" id="birthdate"
-                            class="form-control select {{ $errors->has('birthdate') ? ' is-invalid' : '' }}"
+                            class="form-control form-control-sm select {{ $errors->has('birthdate') ? ' is-invalid' : '' }}"
                             value="{{old('birthdate') ?? $personale->birthdate}}" onfocusout="validatebirthdate()">
                         <div class="input-group-append">
                             <button type="button" id="toggle1" class="input-group-text">
@@ -105,7 +105,7 @@
 
                     <div class="input-group">
                         <input name="zone" type="text" id="zone"
-                            class="form-control select {{ $errors->has('zone') ? ' is-invalid' : '' }}"
+                            class="form-control form-control-sm select {{ $errors->has('zone') ? ' is-invalid' : '' }}"
                             value="{{old('zone') ?? $personale->zone}}" onfocusout="validateZone()">
                         @if ($errors->has('zone'))
                         <span class="invalid-feedback" role="alert">
@@ -124,7 +124,7 @@
 
                     <div class="input-group"> <span class="input-group-addon"></span>
                         <input name="woreda" type="text" id="woreda"
-                            class="form-control select {{ $errors->has('woreda') ? ' is-invalid' : '' }}"
+                            class="form-control form-control-sm select {{ $errors->has('woreda') ? ' is-invalid' : '' }}"
                             value="{{old('woreda') ?? $personale->woreda}}" onfocusout="validateWoreda()">
                         @if ($errors->has('woreda'))
                         <span class="invalid-feedback" role="alert">
@@ -149,7 +149,7 @@
 
                     <div class="input-group"> <span class="input-group-addon"></span>
                         <input name="kebele" type="text" id="kebele"
-                            class="form-control select {{ $errors->has('kebele') ? ' is-invalid' : '' }}"
+                            class="form-control form-control-sm select {{ $errors->has('kebele') ? ' is-invalid' : '' }}"
                             value="{{old('kebele') ?? $personale->kebele}}" onfocusout="validateKebele()">
                         @if ($errors->has('kebele'))
                         <span class="invalid-feedback" role="alert">
@@ -167,8 +167,9 @@
 
                     <div class="input-group"> <span class="input-group-addon"></span>
                         <input name="housenumber" type="text" id="housenumber"
-                            class="form-control select {{ $errors->has('housenumber') ? ' is-invalid' : '' }}"
-                            value="{{old('housenumber') ?? $personale->housenumber}}" onfocusout="validatehousenumber()">
+                            class="form-control form-control-sm select {{ $errors->has('housenumber') ? ' is-invalid' : '' }}"
+                            value="{{old('housenumber') ?? $personale->housenumber}}"
+                            onfocusout="validatehousenumber()">
                         @if ($errors->has('housenumber'))
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $errors->first('housenumber') }}</strong>
@@ -186,7 +187,7 @@
 
             <div class="input-group"> <span class="input-group-addon"></span>
                 <input name="mobile" type="text" id="mobile"
-                    class="form-control select {{ $errors->has('mobile') ? ' is-invalid' : '' }}"
+                    class="form-control form-control-sm select {{ $errors->has('mobile') ? ' is-invalid' : '' }}"
                     value="{{old('mobile') ?? $personale->mobileile}}" onfocusout="validateMobile()">
                 @if ($errors->has('mobile'))
                 <span class="invalid-feedback" role="alert">
@@ -197,9 +198,9 @@
             </div>
         </div>
         <div class="form-group required">
-            <label class="control-label"> Hired Date</label>
+            <label class="control-label" for="hireddate"> Hired Date</label>
             <div class="input-group ">
-                <input type="text" class="form-control form_datetime" name="hireddate" id="hireddate"
+                <input type="text" class="form-control form-control-sm form_datetime" name="hireddate" id="hireddate"
                     value="{{old('hireddate') ?? $personale->hireddate}}" onfocusout="validatehireddate()">
                 <div class="input-group-append">
                     <button type="button" id="toggle" class="input-group-text">
@@ -215,15 +216,30 @@
             @endif
             <span class="invalid-feedback" role="alert"></span>
         </div>
+        <div class="form-group required">
+            <label class="control-label"> Hired Date new</label>
+            <div class="input-group ">
+                <input type="text" class="form-control form-control-sm form_datetime" name="newdd" id="newdd"
+                    onfocusout="validatenewval()">
+                <div class="input-group-append">
+                    <button type="button" id="toggle" class="input-group-text">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <br>
+
+        </div>
 
         <div class="form-group required">
             <label class="control-label" for="departement">Departement</label>
-            <select name="department_id" class="form-control {{ $errors->has('departement') ? ' is-invalid' : '' }} select"
-                id="department_id" value="" onfocusout="validatedepartement()">
-                <option class="dropup" value="" > Select One</option>
+            <select name="department_id" class="form-control form-control-sm {{ $errors->has('departement') ? ' is-invalid' : '' }}
+                select" id="department_id">
+                <option class="dropup" value=""> Select One</option>
                 @foreach ($departements as $departement)
-                   <option class="dropup" value="{{$departement->id}}"
-                    {{ $departement->id == $personale->departement_id ? 'selected' : '' }}> {{ $departement->departementid}}
+                <option class="dropup" value="{{$departement->id}}"
+                    {{ $departement->id == $personale->departement_id ? 'selected' : '' }}>
+                    {{ $departement->name}}
                 </option>
 
                 @endforeach
@@ -237,13 +253,14 @@
         </div>
 
         <div class="form-group required">
-            <label class="control-label" for="job">Operation ID</label>
-            <select name="job_id" class="form-control {{ $errors->has('job') ? ' is-invalid' : '' }} select"
-                id="job_id" value="" onfocusout="validatejob()">
-                <option class="dropup" value="" > Select One</option>
+            <label class="control-label" for="job">Job Title</label>
+            <select name="job_id"
+                class="form-control form-control-sm {{ $errors->has('job') ? ' is-invalid' : '' }} select" id="job_id"
+                value="" onfocusout="validatejob()">
+                <option class="dropup" value=""> Select One</option>
                 @foreach ($jobs as $job)
-                   <option class="dropup" value="{{$job->id}}"
-                    {{ $job->id == $personale->job_id ? 'selected' : '' }}> {{ $job->id}}
+                <option class="dropup" value="{{$job->id}}" {{ $job->id == $personale->job_id ? 'selected' : '' }}>
+                    {{ $job->name}}
                 </option>
 
                 @endforeach
@@ -284,6 +301,9 @@
             $('#toggle').on('click', function(){
                 $("#hd").datetimepicker('toggle');
             })
+
+            // jQuery for jobs
+
         </script>
 
 

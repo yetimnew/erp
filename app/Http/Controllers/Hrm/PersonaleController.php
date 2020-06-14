@@ -7,13 +7,10 @@ use App\Hrm\Job;
 use App\Hrm\Personale;
 use App\User;
 use App\Http\Controllers\Controller;
-use App\Operation\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Contracts\Permission;
 use Spatie\Permission\Contracts\Role;
-use Spatie\Permission\Models\Permission as ModelsPermission;
-use Yajra\DataTables\Facades\DataTables;
 
 class PersonaleController extends Controller
 {
@@ -23,43 +20,38 @@ class PersonaleController extends Controller
     }
     public function index()
     {
-        $personales = Personale::with('user')->get();
-        $departements = Department::all();
-        // dd( $departements);
+        $personales = Personale::with('user')->active()->get();
+        $departements = Department::with('jobs')->get();
         $jobs = Job::all();
 
         return view('hrm.personale.index')
-        ->with('personales',$personales)
-        ->with('departements',$departements)
-        ->with('jobs',$jobs);
+            ->with('personales', $personales)
+            ->with('departements', $departements)
+            ->with('jobs', $jobs);
     }
-
 
     public function create()
     {
         $personale = new  Personale;
         $departements = Department::all();
         $jobs = Job::all();
+
         return view('hrm.personale.create')
-        ->with('personale', $personale)
-        ->with('departements', $departements)
-        ->with('jobs', $jobs);
+            ->with('personale', $personale)
+            ->with('departements', $departements)
+            ->with('jobs', $jobs);
     }
 
     public function store(Request $request)
     {
-        $input = $request->all();
-        // if ($request->hasFile('image')) {
-        //     $input['image'] = $this->uploadPDF($request);
-        // }
-$user= Auth::user()->id ;
-      $input.push($user) ;
-        dd($input);
+        $data = $request->all();
+        dd($data);
+        $user = ['user_id' => Auth::user()->id];
+        $all = array_merge($data, $user);
 
-        // Personale::create( $input);
-
+        Personale::create($all);
         return redirect()->route('personale.index')
-        ->with('flash_message', 'User successfully added.');
+            ->with('flash_message', 'User successfully added.');
     }
 
     public function edit($id)
@@ -68,6 +60,7 @@ $user= Auth::user()->id ;
         $permissions = Permission::orderBy('name')->get(); //Get all permissions
         $roles = Role::all();
         return view('users.edit')
+
             ->with('user', $user)
             ->with('permissions', $permissions)
             ->with('roles', $roles);

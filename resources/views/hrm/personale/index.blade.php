@@ -24,7 +24,7 @@
 
         <div class="card-body">
             <div class="table-responsive text-nowrap">
-                <table class="table table-sm table-bordered " id="personales">
+                <table class="table table-sm table-bordered table-striped " id="personales">
                     <thead>
                         <tr>
                             <th class="m-1 b-1" width="3%">No</th>
@@ -47,48 +47,49 @@
                     <tbody>
                         <?php $no = 0 ?>
                         {{-- {{dd($personales)}} --}}
-						@if ($personales->count()> 0)
-						@foreach ($personales  as $personale)
-						<tr>
-							<td >{{++$no}}</td>
-							<td >{{$personale->personalesid}}</td>
-							<td >{{$personale->fullname}}</td>
-							<td>{{$personale->sex}}</td>
-							<td>{{$personale->birthdate}}</td>
-							<td>{{$personale->zone}}</td>
-							<td>{{$personale->woreda}}</td>
-							<td>{{$personale->kebele}}</td>
-							<td>{{$personale->housenumber}}</td>
-							<td>{{$personale->mobile}}</td>
-							<td>{{$personale->hireddate}}</td>
+                        @if ($personales->count()> 0)
+                        @foreach ($personales as $personale)
+                        <tr>
+                            <td>{{++$no}}</td>
+                            <td>{{$personale->personalesid}}</td>
+                            <td>{{$personale->fullname}}</td>
+                            <td>{{$personale->sex}}</td>
+                            <td>{{$personale->birthdate}}</td>
+                            <td>{{$personale->zone}}</td>
+                            <td>{{$personale->woreda}}</td>
+                            <td>{{$personale->kebele}}</td>
+                            <td>{{$personale->housenumber}}</td>
+                            <td>{{$personale->mobile}}</td>
+                            <td>{{$personale->hireddate}}</td>
                             {{-- <td> {{$personale->user->name}}</td> --}}
-                            <td> {{!empty($personale->user) ? $personale->user->name:'' }}</td>
+                            <td> {{$personale->user->name }}</td>
 
-							<td data-toggle="tooltip" data-placement="top" title="Edit"><a
-									href="{{route('personale.edit', $personale->id)}}"><i class="fas fa-edit"></i></a></td>
-							<td  data-toggle="tooltip" data-placement="top" title="Delete">
-								<form action="{{route('personale.destroy', $personale->id)}}"
-									id="delete-form-{{$personale->id}}" style="display: none">
+                            <td data-toggle="tooltip" data-placement="top" title="Edit"><a
+                                    href="{{route('personale.edit', $personale->id)}}"><i class="fas fa-edit"></i></a>
+                            </td>
+                            <td data-toggle="tooltip" data-placement="top" title="Delete">
+                                <form action="{{route('personale.destroy', $personale->id)}}"
+                                    id="delete-form-{{$personale->id}}" style="display: none">
                                     @csrf
                                     @method('DELETE')
-								</form>
-								<button class="btn btn-sm" type="submit" onclick="if(confirm('Are you sure to delete this?')){
+                                </form>
+                                <button class="btn btn-sm" type="submit" onclick="if(confirm('Are you sure to delete this?')){
 								event.preventDefault();
 								document.getElementById('delete-form-{{$personale->id}}').submit();
 									}else{
                                         event.preventDefault();
 									}"><i class="fas fa-trash red"></i>
-								</button>
-							</td>
-						</tr>
-						@endforeach
-						@else
-						<tr>
-							<td  colspan="15">No Data Avilable</td>
-						</tr>
-						@endif
+                                </button>
+                            </td>
+                        </tr>
+                        @endforeach
+                        @else
+                        <tr>
+                            <td colspan="15">No Data Avilable</td>
+                        </tr>
+                        @endif
 
-					</tbody>
+                    </tbody>
 
                 </table>
             </div>
@@ -101,8 +102,8 @@
     @endsection
     @section('javascript')
 
-	<script>
-		$( document ).ready( function () {
+    <script>
+        $( document ).ready( function () {
 				$( '#personales' ).DataTable( {
 
 				"pageLength": 25,
@@ -117,5 +118,5 @@
 				});
 
 			} );
-	</script>
-	@endsection
+    </script>
+    @endsection

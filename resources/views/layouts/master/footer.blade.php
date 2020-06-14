@@ -53,6 +53,7 @@
       @endif
 </script>
 @yield('javascript')
+@livewireScripts
 </body>
 
 </html>

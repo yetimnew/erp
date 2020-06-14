@@ -30,4 +30,3 @@ function exportTableToExcel(trucks, filename = '') {
         downloadLink.click();
     }
 }
-//print table function
